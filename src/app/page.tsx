@@ -8,12 +8,13 @@ import UnitePage from "@/components/UnitePage";
 import { IoIosArrowDown } from "react-icons/io";
 export default function Home() {
   return (
-    <div className="h-full w-full bg-black pl-4 pr-4">
+    <div className="h-full w-full bg-black/80 pl-4 pr-4">
+      
       <div className="h-screen w-full  flex flex-col justify-center items-center">
-        <div className="h-full w-full absolute top-[-60]">
+        <div className="h-full w-full absolute md:top-[-60]">
           <CreditCardCanvas />
         </div>
-        <div className="w-1/2 h-[30%] relative top-60 flex flex-col justify-center text-center items-center gap-6">
+        <div className="md:w-1/2 w-full  h-[30%] relative top-74 flex flex-col justify-center text-center items-center gap-6">
           <h2 className="text-4xl">
             Si en <b>5 años</b> hicimos tanto,
             <br /> imagínate lo que está

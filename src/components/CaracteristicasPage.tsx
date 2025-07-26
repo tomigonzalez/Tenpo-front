@@ -71,7 +71,7 @@ const CaracteristicasPage = () => {
         {contenido.map(({ title, desc }, index) => (
           <div
             key={index}
-            className="gsap-box translate-x-[300px] w-1/2 h-40 bg-primary rounded-xl p-4 text-center opacity-0"
+            className="gsap-box translate-x-[300px] w-1/2 h-40 bg-zinc-900/70 rounded-xl p-4 text-center opacity-0"
           >
             <h3 className="text-lg font-bold">{title}</h3>
             <p className="text-sm">{desc}</p>

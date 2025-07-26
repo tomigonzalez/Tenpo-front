@@ -31,7 +31,29 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.animated-gradient {
+  background:
+    radial-gradient(circle at 20% 30%, #0000 0%, transparent 60%),
+    radial-gradient(circle at 80% 70%, #00ffc340 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, #0000 0%, transparent 50%);
+  
+  background-size: 200% 200%;
+  animation: gradientMove 30s ease-in-out infinite;
+}
 
+
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 @layer base {
   h1 {
     @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl ;

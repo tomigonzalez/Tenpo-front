@@ -21,14 +21,21 @@ export default function RootLayout({
       className={`${GraphieRegular.variable} ${GraphieExtraBold.variable}`}
     >
       <body
-        className={`antialiased${GraphieRegular.variable} ${GraphieExtraBold.variable}`}
+        className={`antialiased ${GraphieRegular.variable} ${GraphieExtraBold.variable}`}
       >
+        {/* Fondo animado global */}
+        <div className="fixed inset-0 -z-10 animated-gradient" />
+
+        {/* Contenido con scroll suave */}
         <SmoothScrollWrapper>
           <Navbar />
           {children}
+          <div className="bg-black/80 p-4">
           <Footer />
+          </div>
         </SmoothScrollWrapper>
       </body>
     </html>
   );
 }
+

@@ -4,7 +4,7 @@ import { FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-primary w-full h-[50vh] rounded-4xl p-4 flex flex-col justify-between">
+    <div className="bg-zinc-900/70 w-full h-[50vh] rounded-4xl p-4 flex flex-col justify-between">
       <Image
         src="/img/Logotipo.svg" // Ruta a tu archivo SVG en la carpeta public
         alt="Tenpo logo" // Descripción de tu logo para SEO y accesibilidad

@@ -68,7 +68,7 @@ const BeneficiosPage = () => {
           ref={panel1Ref}
           className="w-screen h-full flex items-center justify-center  "
         >
-          <div className="bg-primary w-2/3 h-full rounded-4xl border-white border-4 flex justify-center items-center">
+          <div className="bg-zinc-900/70 w-2/3 h-full rounded-4xl border-white border-4 flex justify-center items-center">
             insertar img
           </div>
         </div>
@@ -76,7 +76,7 @@ const BeneficiosPage = () => {
           ref={panel2Ref}
           className="w-screen h-full flex items-center justify-center"
         >
-          <div className="bg-primary w-2/3 h-full rounded-4xl border-white border-4 flex justify-center items-center">
+          <div className="bg-zinc-900/70 w-2/3 h-full rounded-4xl border-white border-4 flex justify-center items-center">
             insertar img
           </div>
         </div>
@@ -84,7 +84,7 @@ const BeneficiosPage = () => {
           ref={panel3Ref}
           className="w-screen h-full flex items-center justify-center"
         >
-          <div className="bg-primary w-2/3 h-full rounded-4xl border-white border-4 flex justify-center items-center">
+          <div className="bg-zinc-900/70 w-2/3 h-full rounded-4xl border-white border-4 flex justify-center items-center">
             insertar img
           </div>
         </div>
