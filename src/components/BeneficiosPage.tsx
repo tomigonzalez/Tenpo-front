@@ -15,14 +15,14 @@ const BeneficiosPage = () => {
   const panel3Ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
-    () => {
+  () => {
+    requestAnimationFrame(() => {
       const title = titleRef.current;
       const container = containerRef.current;
       const panels = [panel1Ref.current, panel2Ref.current, panel3Ref.current];
 
-      if (!title || !container || panels.length < 2) return;
+      if (!title || !container || panels.some((p) => !p)) return;
 
-      // Título animado con scroll
       gsap.fromTo(
         title,
         { fontSize: "2.5rem" },
@@ -37,7 +37,6 @@ const BeneficiosPage = () => {
         }
       );
 
-      // Carrusel horizontal
       gsap.to(panels, {
         xPercent: -100 * (panels.length - 1),
         ease: "none",
@@ -50,9 +49,11 @@ const BeneficiosPage = () => {
           end: "+=1000",
         },
       });
-    },
-    { scope: containerRef }
-  );
+    });
+  },
+  { scope: containerRef }
+);
+
 
   return (
     <div ref={containerRef} className="w-full h-screen overflow-hidden">
