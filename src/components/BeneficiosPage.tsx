@@ -1,9 +1,9 @@
 "use client";
+
 import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +13,7 @@ const BeneficiosPage = () => {
   const panel1Ref = useRef<HTMLDivElement>(null);
   const panel2Ref = useRef<HTMLDivElement>(null);
   const panel3Ref = useRef<HTMLDivElement>(null);
+
   useGSAP(
     () => {
       const title = titleRef.current;
@@ -24,29 +25,29 @@ const BeneficiosPage = () => {
       // Título animado con scroll
       gsap.fromTo(
         title,
-        { fontSize: "3rem" },
+        { fontSize: "2.5rem" },
         {
           fontSize: "12vw",
           scrollTrigger: {
             trigger: title,
             start: "top center",
-            end: "bottom top", // cuando el título desaparece
+            end: "bottom top",
             scrub: true,
           },
         }
       );
 
-      // Carrousel horizontal que empieza inmediatamente después
+      // Carrusel horizontal
       gsap.to(panels, {
         xPercent: -100 * (panels.length - 1),
         ease: "none",
         scrollTrigger: {
           trigger: container,
-          start: "top 10%", // el mismo contenedor
+          start: "top 2%",
           pin: true,
           scrub: 0.1,
           snap: 1 / (panels.length - 1),
-          end: "+=2000",
+          end: "+=1000",
         },
       });
     },
@@ -55,39 +56,29 @@ const BeneficiosPage = () => {
 
   return (
     <div ref={containerRef} className="w-full h-screen overflow-hidden">
-      {/* Título animado */}
-      <div className="flex flex-col items-center">
-        <h3 ref={titleRef} className="font-bold leading-none text-white">
+      {/* Título */}
+      <div className="flex flex-col items-center justify-center py-12 px-4">
+        <h3
+          ref={titleRef}
+          className="font-bold leading-none text-white text-4xl sm:text-5xl md:text-6xl lg:text-[10vw] text-center"
+        >
           BENEFICIOS
         </h3>
       </div>
 
-      {/* Carrousel horizontal */}
+      {/* Carrusel horizontal */}
       <div className="flex w-fit h-[60vh]">
-        <div
-          ref={panel1Ref}
-          className="w-screen h-full flex items-center justify-center  "
-        >
-          <div className="bg-zinc-900/70 w-2/3 h-full rounded-4xl border-white border-4 flex justify-center items-center">
-            insertar img
+        {[panel1Ref, panel2Ref, panel3Ref].map((ref, index) => (
+          <div
+            key={index}
+            ref={ref}
+            className="w-screen h-full flex items-center p-4"
+          >
+            <div className="bg-zinc-900/70 w-[85%] sm:w-[92%] h-full rounded-3xl border-2 border-white flex justify-center items-center text-white text-xl">
+              insertar img
+            </div>
           </div>
-        </div>
-        <div
-          ref={panel2Ref}
-          className="w-screen h-full flex items-center justify-center"
-        >
-          <div className="bg-zinc-900/70 w-2/3 h-full rounded-4xl border-white border-4 flex justify-center items-center">
-            insertar img
-          </div>
-        </div>
-        <div
-          ref={panel3Ref}
-          className="w-screen h-full flex items-center justify-center"
-        >
-          <div className="bg-zinc-900/70 w-2/3 h-full rounded-4xl border-white border-4 flex justify-center items-center">
-            insertar img
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

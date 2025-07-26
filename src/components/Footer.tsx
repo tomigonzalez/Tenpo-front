@@ -4,32 +4,40 @@ import { FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-zinc-900/70 w-full h-[50vh] rounded-4xl p-4 flex flex-col justify-between">
-      <Image
-        src="/img/Logotipo.svg" // Ruta a tu archivo SVG en la carpeta public
-        alt="Tenpo logo" // Descripción de tu logo para SEO y accesibilidad
-        width={300} // Ancho deseado de tu logo en el navbar (ajusta según necesites)
-        height={0} // Alto deseado de tu logo en el navbar (ajusta según necesites)
-        priority={true} // Marca como priority ya que es un elemento LCP (Largest Contentful Paint) en la primera carga
-        className="z-10"
-      />
-      <div className="flex flex-row justify-between">
-        <h5>
-          developed by <b>TMGC</b>
-        </h5>
-        <ul className="flex flex-row gap-20">
-          <li>
-            <FaInstagram size={40} />
+    <footer className="bg-zinc-900/70 w-full rounded-t-4xl p-6 sm:p-10 flex flex-col gap-6">
+      {/* Logo */}
+      <div className="flex justify-center sm:justify-start">
+        <Image
+          src="/img/Logotipo.svg"
+          alt="Tenpo logo"
+          width={180}
+          height={0}
+          priority
+          className="h-auto"
+        />
+      </div>
+
+      {/* Bottom content */}
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-6 border-t border-white/10 pt-6">
+        {/* Developer info */}
+        <p className="text-sm text-white/70 text-center sm:text-left">
+          Developed by <b className="text-white">TMGC</b>
+        </p>
+
+        {/* Social icons */}
+        <ul className="flex gap-6 text-white">
+          <li className="hover:text-secondary transition-colors">
+            <a href="#"><FaInstagram size={28} /></a>
           </li>
-          <li>
-            <FaTiktok size={40} />
+          <li className="hover:text-secondary transition-colors">
+            <a href="#"><FaTiktok size={28} /></a>
           </li>
-          <li>
-            <FaYoutube size={40} />
+          <li className="hover:text-secondary transition-colors">
+            <a href="#"><FaYoutube size={28} /></a>
           </li>
         </ul>
       </div>
-    </div>
+    </footer>
   );
 };
 
