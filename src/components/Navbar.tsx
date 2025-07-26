@@ -35,9 +35,10 @@ export default function Navbar() {
     <>
       <header
         ref={navRef}
-        className="fixed top-4 z-50 w-[95%] left-1/2 -translate-x-1/2
-        h-20 px-6 flex items-center justify-between
-        rounded-full text-white transition-all duration-300 overflow-visible bg-transparent "
+        className="fixed top-4 left-1/2 -translate-x-1/2 z-50 
+        w-[95%] h-16 px-6 flex items-center justify-between 
+        rounded-full text-white transition-all duration-300 
+        bg-transparent backdrop-blur-md"
       >
         {/* Logo */}
         <Image
@@ -74,7 +75,7 @@ export default function Navbar() {
 
         {/* Hamburguesa - Mobile */}
         <button
-          className="md:hidden z-20"
+          className="md:hidden z-50"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle Menu"
         >
@@ -82,36 +83,30 @@ export default function Navbar() {
         </button>
       </header>
 
-      {/* Menú Móvil (con blur y animación) */}
+      {/* Menú Móvil */}
       <div
-        className={`fixed h-screen top-0 left-0 w-full 
-    px-6 py-6 flex flex-col justify-center items-center gap-4 
-    md:hidden z-40 transition-all duration-300 ease-in-out 
-    backdrop-blur-md bg-zinc-900/70 
-    transform 
-    ${
-      menuOpen
-        ? "opacity-100 scale-100 pointer-events-auto"
-        : "opacity-0 scale-95 pointer-events-none"
-    }`}
+        className={`fixed top-0 left-0 w-full h-screen 
+        bg-zinc-900/90 backdrop-blur-md flex flex-col items-center justify-center gap-6 
+        z-40 transition-opacity duration-300 ease-in-out
+        ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
         <Link
           href=""
-          className="text-white font-semibold hover:text-secondary"
+          className="text-white text-lg font-semibold hover:text-secondary"
           onClick={() => setMenuOpen(false)}
         >
           Nosotros
         </Link>
         <Link
           href=""
-          className="text-white font-semibold hover:text-secondary"
+          className="text-white text-lg font-semibold hover:text-secondary"
           onClick={() => setMenuOpen(false)}
         >
           Beneficios
         </Link>
         <Link
           href=""
-          className="text-white font-semibold hover:text-secondary"
+          className="text-white text-lg font-semibold hover:text-secondary"
           onClick={() => setMenuOpen(false)}
         >
           Contacto

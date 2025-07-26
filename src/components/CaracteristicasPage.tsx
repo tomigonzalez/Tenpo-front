@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const CaracteristicasPage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -28,8 +30,12 @@ const CaracteristicasPage = () => {
     () => {
       const boxes = gsap.utils.toArray(".gsap-box") as HTMLDivElement[];
 
-      boxes.forEach((box) => {
-        gsap.set(box, { opacity: 0 });
+      boxes.forEach((box, i) => {
+        gsap.set(box, {
+          opacity: 0,
+          y: 50,
+          visibility: "hidden",
+        });
 
         gsap
           .timeline({
@@ -41,16 +47,11 @@ const CaracteristicasPage = () => {
             },
           })
           .to(box, {
-            x: 0,
-            rotation: 0,
             opacity: 1,
-            duration: 4,
-            ease: "power1.inOut",
-          })
-          .to(box, {
-            scale: 1,
-            duration: 3,
-            ease: "power1.inOut",
+            y: 0,
+            visibility: "visible",
+            duration: 1.5,
+            ease: "power2.out",
           });
       });
 
@@ -71,7 +72,7 @@ const CaracteristicasPage = () => {
         {contenido.map(({ title, desc }, index) => (
           <div
             key={index}
-            className="gsap-box translate-x-[300px] w-full lg:w-4/5 bg-zinc-900/70 rounded-xl p-6 text-center opacity-0"
+            className="gsap-box w-full lg:w-4/5 bg-zinc-900/70 rounded-xl p-6 text-center"
           >
             <h3 className="text-xl font-bold text-white">{title}</h3>
             <p className="text-sm text-gray-300">{desc}</p>
@@ -79,7 +80,7 @@ const CaracteristicasPage = () => {
         ))}
       </div>
 
-      {/* Imagen (se oculta en sm) */}
+      {/* Imagen */}
       <div className="w-7/12 md:w-4/12 max-w-xs sm:max-w-sm lg:max-w-md">
         <Image
           src="/img/phone.png"
@@ -95,4 +96,3 @@ const CaracteristicasPage = () => {
 };
 
 export default CaracteristicasPage;
-
