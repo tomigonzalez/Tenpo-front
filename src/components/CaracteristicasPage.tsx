@@ -81,7 +81,7 @@ const CaracteristicasPage = () => {
       </div>
 
       {/* Imagen */}
-      <div className="w-7/12 md:w-4/12 max-w-xs sm:max-w-sm lg:max-w-md">
+      <div data-aos="fade-in" className="w-7/12 md:w-4/12 max-w-xs sm:max-w-sm lg:max-w-md">
         <Image
           src="/img/phone.png"
           alt="Tenpo logo"

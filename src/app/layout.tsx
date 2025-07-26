@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScrollWrapper from "@/components/ui/SmothScrollWrapper";
+import AOSInit from "@/components/AousInit";
 
 export const metadata: Metadata = {
   title: "Tenpo",
@@ -25,7 +26,7 @@ export default function RootLayout({
       >
         {/* Fondo animado global */}
         <div className="fixed inset-0 -z-10 animated-gradient" />
-
+        <AOSInit />
         {/* Contenido con scroll suave */}
         <SmoothScrollWrapper>
           <Navbar />
