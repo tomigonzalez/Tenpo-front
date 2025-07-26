@@ -29,9 +29,9 @@ const AtencionPage = () => {
         className="flex flex-row gap-2 whitespace-nowrap w-max"
       >
         {Array.from({ length: 20 }).map((_, i) => (
-          <h3 key={i} className="tickerz px-2 font-regular text-6xl">
+          <h4 key={i} className="tickerz px-2 font-regular text-6xl">
             SERIVICIO AL PUBLICO 24/7
-          </h3>
+          </h4>
         ))}
       </div>
     </div>

@@ -14,9 +14,9 @@ const Footer = () => {
         className="z-10"
       />
       <div className="flex flex-row justify-between">
-        <h1>
+        <h5>
           developed by <b>TMGC</b>
-        </h1>
+        </h5>
         <ul className="flex flex-row gap-20">
           <li>
             <FaInstagram size={40} />
