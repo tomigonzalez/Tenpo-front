@@ -11,7 +11,7 @@ export default function Home() {
     <div className="h-full w-full bg-black/80 pl-4 pr-4">
       
       <div className="h-screen w-full  flex flex-col justify-center items-center">
-        <div className="h-full w-full absolute md:top-[-60]">
+        <div className="h-full w-full absolute md:top-[-60] top-[-60]">
           <CreditCardCanvas />
         </div>
         <div className="md:w-1/2 w-full  h-[30%] relative top-74 flex flex-col justify-center text-center items-center gap-6">
