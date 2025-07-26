@@ -12,15 +12,15 @@ const CaracteristicasPage = () => {
   const contenido = [
     {
       title: "lorem",
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     },
     {
       title: "lorem",
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      desc: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
     },
     {
       title: "lorem",
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      desc: "It has survived not only five centuries, but also the leap into electronic typesetting.",
     },
   ];
 
@@ -64,30 +64,30 @@ const CaracteristicasPage = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full h-full mt-6 flex flex-row items-center space-y-20  overflow-hidden"
+      className="w-full flex flex-col-reverse lg:flex-row items-center justify-center gap-10 px-4 lg:px-20 py-10"
     >
       {/* Cajas */}
-      <div className="w-full flex flex-col justify-center items-center m-0 space-y-10">
+      <div className="w-full lg:w-7/12 flex flex-col items-center gap-8">
         {contenido.map(({ title, desc }, index) => (
           <div
             key={index}
-            className="gsap-box translate-x-[300px] w-1/2 h-40 bg-zinc-900/70 rounded-xl p-4 text-center opacity-0"
+            className="gsap-box translate-x-[300px] w-full lg:w-4/5 bg-zinc-900/70 rounded-xl p-6 text-center opacity-0"
           >
-            <h3 className="text-lg font-bold">{title}</h3>
-            <p className="text-sm">{desc}</p>
+            <h3 className="text-xl font-bold text-white">{title}</h3>
+            <p className="text-sm text-gray-300">{desc}</p>
           </div>
         ))}
       </div>
 
-      {/* Imagen */}
-      <div className="w-4/12 mt-10">
+      {/* Imagen (se oculta en sm) */}
+      <div className="w-7/12 md:w-4/12 max-w-xs sm:max-w-sm lg:max-w-md">
         <Image
           src="/img/phone.png"
           alt="Tenpo logo"
-          width={280}
+          width={300}
           height={0}
           priority
-          className="z-10"
+          className="mx-auto"
         />
       </div>
     </div>
@@ -95,3 +95,4 @@ const CaracteristicasPage = () => {
 };
 
 export default CaracteristicasPage;
+

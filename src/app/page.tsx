@@ -14,7 +14,7 @@ export default function Home() {
         <div className="h-full w-full absolute md:top-[-60] top-[-30]">
           <CreditCardCanvas />
         </div>
-        <div className="md:w-1/2 w-full relative top-74 flex flex-col justify-center text-center items-center gap-6">
+        <div className="md:w-1/2 w-full relative md:top-74 top-62 flex flex-col justify-center text-center items-center gap-6">
           <h2 className="md:text-4xl text'2">
             Si en <b>5 años</b> hicimos tanto,
             <br /> imagínate lo que está
