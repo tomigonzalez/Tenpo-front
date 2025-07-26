@@ -25,17 +25,21 @@ Landing page interactiva y visualmente atractiva para una fintech ficticia,
 
 - ✨ Hero animado al cargar (texto + modelo 3D animado).
 - 🌀 Interacciones al hacer scroll: GSAP y AOS para entradas suaves y transiciones.
-- 📱 Mockup 3D del producto (tarjeta) con movimiento automático.
+- 📱 Mockup 3D del producto (tarjeta) con movimiento automático y interactiva.
 - 💡 Sección de beneficios animados con íconos y microinteracciones.
 - 📣 Call to action llamativo y visualmente destacado.
 - 📱 Diseño 100% responsive (desktop + mobile).
 - 🎨 Estilo visual coherente con la identidad de marca Tenpo (colores, tipografías, layout).
-
+- 🎨Aplique el efecto de loader fijo con un set time out , pero tranquilamente puedo acomodarlo para que cuando se renderice todo.
 ---
 
 ## ⚙️ Instalación local
 
 1. Clonar el repositorio:
-
-```bash
 git clone https://github.com/tomigonzalez/Tenpo-front.git
+
+2. Installar dependencias:
+npm install
+
+3. Levantar en Local
+npm run dev
