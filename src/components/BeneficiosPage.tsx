@@ -87,7 +87,7 @@ const BeneficiosPage = () => {
         </h3>
       </div>
 
-      {/* Carrusel horizontal */}
+      {/* Carrusel horizontaal */}
       <div className="flex w-fit h-[60vh] mt-10">
         {[panel1Ref, panel2Ref, panel3Ref].map((ref, index) => (
           <div
