@@ -48,7 +48,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full flex flex-col justify-center items-center pl-4 pr-4 mb-30">
+      <div className="w-full flex flex-col justify-center items-center pl-4 pr-4 mb-6">
         <CaracteristicasPage />
       </div>
       <div className="w-full h-full pl-4 pr-4 ">
