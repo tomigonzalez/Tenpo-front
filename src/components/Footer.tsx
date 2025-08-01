@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="flex justify-center sm:justify-start">
         <Image
           src="/img/Logotipo.svg"
-          alt="Tenpo logo"
+          alt="Tenpo logos"
           width={180}
           height={0}
           priority
@@ -27,13 +27,19 @@ const Footer = () => {
         {/* Social icons */}
         <ul className="flex gap-6 text-white">
           <li className="hover:text-secondary transition-colors">
-            <a href="#"><FaInstagram size={28} /></a>
+            <a href="#">
+              <FaInstagram size={28} />
+            </a>
           </li>
           <li className="hover:text-secondary transition-colors">
-            <a href="#"><FaTiktok size={28} /></a>
+            <a href="#">
+              <FaTiktok size={28} />
+            </a>
           </li>
           <li className="hover:text-secondary transition-colors">
-            <a href="#"><FaYoutube size={28} /></a>
+            <a href="#">
+              <FaYoutube size={28} />
+            </a>
           </li>
         </ul>
       </div>
