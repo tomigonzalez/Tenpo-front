@@ -16,6 +16,9 @@ const BeneficiosPage = () => {
 
   useGSAP(
     () => {
+      // Limpia triggers previos
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+
       const title = titleRef.current;
       const container = containerRef.current;
       const panels = [panel1Ref.current, panel2Ref.current, panel3Ref.current];
@@ -24,7 +27,7 @@ const BeneficiosPage = () => {
 
       const isDesktop = window.innerWidth > 768;
 
-      // 🎯 Animación del título SOLO en escritorio
+      // 🎯 Animación del título SOLO en desktop
       if (isDesktop) {
         gsap.fromTo(
           title,
@@ -42,7 +45,7 @@ const BeneficiosPage = () => {
         );
       }
 
-      // 🎯 Carrusel horizontal (común)
+      // 🎯 Carrusel horizontal
       gsap.to(panels, {
         xPercent: -100 * (panels.length - 1),
         ease: "none",
@@ -56,10 +59,10 @@ const BeneficiosPage = () => {
         },
       });
 
-      // 🔄 Refrescar layout (producción)
-      requestAnimationFrame(() => {
+      // ✅ Refrescar scroll cuando DOM se estabiliza
+      setTimeout(() => {
         ScrollTrigger.refresh();
-      });
+      }, 100);
     },
     { scope: containerRef }
   );
