@@ -22,46 +22,27 @@ const BeneficiosPage = () => {
 
       if (!title || !container || panels.some((p) => !p)) return;
 
-      // 🎯 Animación del título en base al ancho
-      ScrollTrigger.matchMedia({
-        // ✅ Mobile
-        "(max-width: 768px)": () => {
-          gsap.fromTo(
-            title,
-            { scale: 1 },
-            {
-              scale: 1.5,
-              transformOrigin: "center",
-              scrollTrigger: {
-                trigger: container,
-                start: "top 90%",
-                end: "top+=180px",
-                scrub: true,
-              },
-            }
-          );
-        },
+      const isDesktop = window.innerWidth > 768;
 
-        // ✅ Desktop
-        "(min-width: 769px)": () => {
-          gsap.fromTo(
-            title,
-            { scale: 1 },
-            {
-              scale: 6,
-              transformOrigin: "center",
-              scrollTrigger: {
-                trigger: container,
-                start: "top 90%",
-                end: "top+=300px",
-                scrub: true,
-              },
-            }
-          );
-        },
-      });
+      // 🎯 Animación del título SOLO en escritorio
+      if (isDesktop) {
+        gsap.fromTo(
+          title,
+          { scale: 1 },
+          {
+            scale: 6,
+            transformOrigin: "center",
+            scrollTrigger: {
+              trigger: container,
+              start: "top 90%",
+              end: "top+=300px",
+              scrub: true,
+            },
+          }
+        );
+      }
 
-      // 🎯 Carrusel horizontal
+      // 🎯 Carrusel horizontal (común)
       gsap.to(panels, {
         xPercent: -100 * (panels.length - 1),
         ease: "none",
@@ -75,7 +56,7 @@ const BeneficiosPage = () => {
         },
       });
 
-      // ✅ Importante para producción: asegurar el layout
+      // 🔄 Refrescar layout (producción)
       requestAnimationFrame(() => {
         ScrollTrigger.refresh();
       });
