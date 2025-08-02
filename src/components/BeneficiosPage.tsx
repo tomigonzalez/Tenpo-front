@@ -14,69 +14,77 @@ const BeneficiosPage = () => {
   const panel2Ref = useRef<HTMLDivElement>(null);
   const panel3Ref = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    const title = titleRef.current;
-    const container = containerRef.current;
-    const panels = [panel1Ref.current, panel2Ref.current, panel3Ref.current];
+  useGSAP(
+    () => {
+      const title = titleRef.current;
+      const container = containerRef.current;
+      const panels = [panel1Ref.current, panel2Ref.current, panel3Ref.current];
 
-    if (!title || !container || panels.some((p) => !p)) return;
+      if (!title || !container || panels.some((p) => !p)) return;
 
-    // 🔁 Media queries para distintas escalas
-    ScrollTrigger.matchMedia({
-      // ✅ MOBILE
-      "(max-width: 768px)": () => {
-        gsap.fromTo(
-          title,
-          { scale: 1 },
-          {
-            scale: 1.5,
-            transformOrigin: "center",
-            scrollTrigger: {
-              trigger: container,
-              start: "top 90%",
-              end: "top+=180px",
-              scrub: true,
-            },
-          }
-        );
-      },
+      // 🎯 Animación del título en base al ancho
+      ScrollTrigger.matchMedia({
+        // ✅ Mobile
+        "(max-width: 768px)": () => {
+          gsap.fromTo(
+            title,
+            { scale: 1 },
+            {
+              scale: 1.5,
+              transformOrigin: "center",
+              scrollTrigger: {
+                trigger: container,
+                start: "top 90%",
+                end: "top+=180px",
+                scrub: true,
+              },
+            }
+          );
+        },
 
-      // ✅ DESKTOP
-      "(min-width: 769px)": () => {
-        gsap.fromTo(
-          title,
-          { scale: 1 },
-          {
-            scale: 6,
-            transformOrigin: "center",
-            scrollTrigger: {
-              trigger: container,
-              start: "top 90%",
-              end: "top+=300px",
-              scrub: true,
-            },
-          }
-        );
-      },
-    });
+        // ✅ Desktop
+        "(min-width: 769px)": () => {
+          gsap.fromTo(
+            title,
+            { scale: 1 },
+            {
+              scale: 6,
+              transformOrigin: "center",
+              scrollTrigger: {
+                trigger: container,
+                start: "top 90%",
+                end: "top+=300px",
+                scrub: true,
+              },
+            }
+          );
+        },
+      });
 
-    // 🎯 Carrusel horizontal (común a todos)
-    gsap.to(panels, {
-      xPercent: -100 * (panels.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: container,
-        start: "top top",
-        pin: true,
-        scrub: 0.1,
-        snap: 1 / (panels.length - 1),
-        end: "+=1000",
-      },
-    });
-  }, { scope: containerRef });
+      // 🎯 Carrusel horizontal
+      gsap.to(panels, {
+        xPercent: -100 * (panels.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          start: "top top",
+          pin: true,
+          scrub: 0.1,
+          snap: 1 / (panels.length - 1),
+          end: "+=1000",
+        },
+      });
+
+      // ✅ Importante para producción: asegurar el layout
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    },
+    { scope: containerRef }
+  );
 
   return (
-    <div ref={containerRef} className="w-full min-h-screen overflow-hidden  ">
+    <div ref={containerRef} className="w-full min-h-[100dvh] overflow-hidden">
       {/* Título */}
       <div className="pt-[90px] sm:pt-[180px] flex flex-col items-center justify-center py-12 px-4">
         <h3
@@ -87,7 +95,7 @@ const BeneficiosPage = () => {
         </h3>
       </div>
 
-      {/* Carrusel horizontaal */}
+      {/* Carrusel horizontal */}
       <div className="flex w-fit h-[60vh] mt-10">
         {[panel1Ref, panel2Ref, panel3Ref].map((ref, index) => (
           <div

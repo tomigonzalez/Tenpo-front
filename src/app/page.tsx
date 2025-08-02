@@ -9,7 +9,6 @@ import ContactaPage from "@/components/ContactaPage";
 import CreditCardCanvas from "@/components/ui/CreditCardModel";
 import UnitePage from "@/components/UnitePage";
 
-
 import { IoIosArrowDown } from "react-icons/io";
 import Loader from "@/components/Loader";
 
