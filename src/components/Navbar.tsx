@@ -88,7 +88,11 @@ export default function Navbar() {
         className={`fixed top-0 left-0 w-full h-screen 
         bg-zinc-900/90 backdrop-blur-md flex flex-col items-center justify-center gap-6 
         z-40 transition-opacity duration-300 ease-in-out
-        ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        ${
+          menuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
       >
         <Link
           href=""

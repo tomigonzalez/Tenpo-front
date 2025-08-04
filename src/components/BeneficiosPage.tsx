@@ -16,9 +16,6 @@ const BeneficiosPage = () => {
 
   useGSAP(
     () => {
-      // Limpia triggers previos
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-
       const title = titleRef.current;
       const container = containerRef.current;
       const panels = [panel1Ref.current, panel2Ref.current, panel3Ref.current];

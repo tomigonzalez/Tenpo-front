@@ -31,12 +31,11 @@ export default function RootLayout({
         <SmoothScrollWrapper>
           <Navbar />
           {children}
-          <div className="bg-black/80 p-4">
-          <Footer />
+          <div className=" p-4">
+            <Footer />
           </div>
         </SmoothScrollWrapper>
       </body>
     </html>
   );
 }
-
